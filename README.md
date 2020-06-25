@@ -50,9 +50,9 @@ we need to create one public SSH key in GitHub account and then we can use
 git@github.com:NSrilalitha/angular5-tutorial.git
 
 eg:
-    git clone https://github.com/NSrilalitha/angular5-tutorial.git
-    (or)
-    git clone git@github.com:NSrilalitha/angular5-tutorial.git
+        git clone https://github.com/NSrilalitha/angular5-tutorial.git
+        (or)
+        git clone git@github.com:NSrilalitha/angular5-tutorial.git
 
 for the first time it will give a prompt to enter password
 
@@ -63,7 +63,26 @@ GitHub repository is called remote repository by default name will be origin
 4. to know the status of the files in the repository use below command
 
         git status
+        
+   there is another command which gives brief information on any changes that you have made
+   
+        git diff
 
+Adding another remote repository to your local repository
+---------------------------------------------------------
+To add another remote repository other than origin, we can use git remote add command as shown below.
+
+        git remote add staging git://git.kernel.org/.../gregkh/staging.git
+        
+        here staging -> remote repository name
+        git://git.kernel.org/.../gregkh/staging.git -> remote repository url
+        
+        to access this remote repository instead of url each time we can use given name 'staging'
+        
+ To fetch changes from this remote repository we can use fetch command as shown below
+ 
+        git fetch staging
+        
 Adding files to staging area
 ----------------------------
 5. inorder to add files to staging area use below command
@@ -86,18 +105,25 @@ Committing changes
 
         git commit -m "commit message"
 
+In order to view details about particular commit we can use show command
+
+        git show <commit-hash>
 
 log history
 -----------
 to know the history of commits use below commands
 
         git log
+        
+If you want complete diff at each step use below command
+
+        git log -p
 
 
 7. go back to previous commit/any commit we wanted
 To go back to state of previous commit, use below command
 
-    git checkout <commit-hash-code>
+        git checkout <commit-hash>
 
 Branches
 --------
@@ -158,8 +184,12 @@ repository. Inorder to update your local repository with latest changes take pul
 
     git pull --all
 
-The git pull command merges the file from your remote repository (GitHub) into
- your local repository with a single command.
+The git pull command merges the file from your remote repository (GitHub) into your local repository with a single command.
+The "pull" command thus performs two operations: it fetches changes from a remote branch, then merges them into the current branch.
  
+ If you have uncommitted changes in your local repository, then when you try to pull you may end up with conflicts if the same file is modified in your local and in remote
+ repository. In such cases, instead of directly pulling the changes we can use fecth. git fetch will show the changes in remote repository without merging it to local files
+ 
+        git fetch
  
 
