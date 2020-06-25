@@ -6,11 +6,14 @@ https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud
 Git commands
 ------------
 1. To know the version of git installed use below command
+
 git --version
 
 
 2. configure your name and email
+
 git config --global user.name "Srilalitha Nittala"
+
 git config --global user.email "srilalitha.nittala@gmail.com"
 
 these details needs to be updated in .gitconfig file as well.
@@ -25,6 +28,7 @@ repositories:
 
 
 3. inorder to track changes using git, we have initialize that specific project folder with below command
+
 git init
 
 this creates .git folder which stores information about this repository
@@ -54,16 +58,19 @@ GitHub repository is called remote repository by default name will be origin
 
 
 4. to know the status of the files in the repository use below command
+
 git status
 
 Adding files to staging area
 ----------------------------
 5. inorder to add files to staging area use below command
+
 git add filename
 
 eg: git add index.html
 
 to add all files to the staging area use below command
+
 git add .
 
 now do git status
@@ -73,17 +80,20 @@ use git rm --cached <file> to unstage the file
 Committing changes
 --------------
 6. committing changes
+
 git commit -m "commit message"
 
 
 log history
 -----------
 to know the history of commits use below commands
+
 git log
 
 
 7. go back to previous commit/any commit we wanted
 To go back to state of previous commit, use below command
+
 git checkout <commit-hash-code>
 
 Branches
@@ -91,15 +101,18 @@ Branches
 main branch -> called as master
 
 8. to get the list of branches use below command
+
 git branch
 
 here star(*) indicates active branch that we are working on
 
 9. to create a new branch use below command
+
 git branch <new-branch-name>
 eg: git branch crazycolors
   
 10. to move to specific branch use below command
+
 git checkout <branch-name>
 
 now move to new branch and make changes in that branch
@@ -109,14 +122,17 @@ Merge branches
 ---------------
 inorder to merge the new branch to master first move to master and then merge new branch
 step1: move to master
+
 git checkout master
 
 step2: merge new branch
+
 git merge crazycolors
 
 this will merge all changes in crazycolors branch to master branch
 
 11. to delete a branch use -d flag with below command
+
 git branch -d crazycolors
 
 
