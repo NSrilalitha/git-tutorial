@@ -192,4 +192,61 @@ The "pull" command thus performs two operations: it fetches changes from a remot
  
         git fetch
  
+Resolving merge conflicts
+--------------------------
+When a merge isn’t resolved automatically, Git leaves the index and the working tree in a special state that gives you all the information you need to help resolve the merge.
+
+Also, git-status will list those files as "unmerged", and the files with conflicts will have conflict markers added, like this:
+
+        <<<<<<< HEAD:file.txt
+        Hello world
+        =======
+        Goodbye
+        >>>>>>> 77976da35a11db4580b80ae27e8d65caf5208086:file.txt
+        
+All you need to do is edit the files to resolve the conflicts, and then
+
+        $ git add file.txt
+        $ git commit
+        
+This will resolve the simple merge conflicts.
+
+All of the changes that Git was able to merge automatically are already added to the index file, so git-diff shows only the conflicts. It uses an unusual syntax:
+
+        $ git diff
+        diff --cc file.txt
+        index 802992c,2b60207..0000000
+        --- a/file.txt
+        +++ b/file.txt
+        @@@ -1,1 -1,1 +1,5 @@@
+        ++<<<<<<< HEAD:file.txt
+        +Hello world
+        ++=======
+        + Goodbye
+        ++>>>>>>> 77976da35a11db4580b80ae27e8d65caf5208086:file.txt
+        
+Stash your changes
+-------------------
+Whenever you want to take pull, inorder to avoid conflicts, first stash your changes. Stash will save all your local uncommitted changes to some temporary location. Then take pull and update your branch with remote repository latest changes. After taking new changes then apply your stash changes so that the branch gets updated with remote repository latest changes and your latest changes. Then you can commit your changes.
+
+        Step1: stash your local uncommitted changes
+                git stash
+                
+        Step2: Take updates from remote repository either origin or any other remote repository
+                git pull 
+                
+        Step3: Apply your stashed changes
+                git stash apply
+                
+        Step4: To see all files that needs to be committed, and file modifications either use git status or git diff commands
+        
+        Step5: Commit your changes
+                git add .
+                git commit -m "committing latest changes"
+                
+        Step6:  Push the changes to remote repository
+                git push origin master
+                (or)
+                git push staging master
+                
 
