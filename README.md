@@ -249,4 +249,12 @@ Whenever you want to take pull, inorder to avoid conflicts, first stash your cha
                 (or)
                 git push staging master
                 
+git reset
+-----------
+With git add command we can add all our changes to staging area. Git reset command will remove the changes from staging area and show those files as untracked. Suppose by mistake if we some files to staging area. If we dont want those files to be committed, then you can remove those changes from staging area.
+
+        git reset
+        
+This does opposite of git add command
+
 
