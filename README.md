@@ -6,6 +6,14 @@ https://git-scm.com/docs/gittutorial
 
 Git cheatsheet: https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf
 
+A Git project can be thought of as having three parts:
+
+1.A Working Directory: where you'll be doing all the work: creating, editing, deleting and organizing files
+
+2.A Staging Area: where you'll list changes you make to the working directory
+
+3.A Repository: where Git permanently stores those changes as different versions of the project
+
 Git commands
 ------------
 1. To know the version of git installed use below command
@@ -67,9 +75,25 @@ GitHub repository is called remote repository by default name will be origin
    there is another command which gives brief information on any changes that you have made
    
         git diff
+        
+   git diff shows the difference between the working directory and the staging area
 
 Adding another remote repository to your local repository
 ---------------------------------------------------------
+A remote is a Git repository that lives outside your Git project folder. Remotes can live on the web, on a shared network or even in a separate folder on your local computer. 
+
+The Git Collaborative Workflow are steps that enable smooth project development when multiple collaborators are working on the same Git project. 
+
+1.git clone: Creates a local copy of a remote.
+
+2.git remote -v: Lists a Git project's remotes. 
+
+3.git fetch: Fetches work from the remote into the local copy.
+
+4.git merge origin/master: Merges origin/master into your local branch.
+
+5.git push origin <branch_name>: Pushes a local branch to the origin remote.
+
 To add another remote repository other than origin, we can use git remote add command as shown below.
 
         git remote add staging git://git.kernel.org/.../gregkh/staging.git
@@ -256,5 +280,15 @@ With git add command we can add all our changes to staging area. Git reset comma
         git reset
         
 This does opposite of git add command
+
+The Git workflow consists of editing files in the working directory, adding files to the staging area, and saving changes to a Git repository. In Git, we save changes with a commit
+
+1. git checkout HEAD filename: Discards changes in the working directory.It will restore the file in your working directory to look exactly as it did when you last made a commit.
+
+2. git reset HEAD filename: Unstages file changes in the staging area.This command resets the file in the staging area to be the same as the HEAD commit. It does not discard file changes from the working directory, it just removes them from the staging area.
+
+3. git reset SHA: Can be used to reset to a previous commit in your commit history. 
+
+4. way to add multiple files to the staging area with a single command: git add filename_1 filename_2
 
 
