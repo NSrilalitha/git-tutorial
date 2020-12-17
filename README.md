@@ -42,7 +42,7 @@ repositories:
 
         git init
 
-this creates .git folder which stores information about this repository
+this creates .git folder which stores information about this repository. git init initializes the repository as a new Git repository
 
 Clone repository
 ----------------
@@ -72,7 +72,7 @@ GitHub repository is called remote repository by default name will be origin
 
         git status
         
-   there is another command which gives brief information on any changes that you have made
+   there is another command which gives brief information on any changes that you have made. git status inspects the contents of the working directory and staging area
    
         git diff
         
@@ -119,6 +119,8 @@ to add all files to the staging area use below command
 
         git add .
 
+git add adds files from the working directory to the staging area
+
 now do git status
 staged files shown in green color and it tells changes to be committed or 
 use git rm --cached <file> to unstage the file
@@ -129,6 +131,7 @@ Committing changes
 
         git commit -m "commit message"
 
+git commit permanently stores file changes from the staging area in the repository
 In order to view details about particular commit we can use show command
 
         git show <commit-hash>
@@ -280,6 +283,8 @@ With git add command we can add all our changes to staging area. Git reset comma
         git reset
         
 This does opposite of git add command
+
+
 
 The Git workflow consists of editing files in the working directory, adding files to the staging area, and saving changes to a Git repository. In Git, we save changes with a commit
 
